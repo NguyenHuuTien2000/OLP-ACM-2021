@@ -9,19 +9,9 @@ public class TrailingZeros {
     public static void main(String[] args) {
         InputReader reader = new InputReader();
 
-        int n = reader.nextInt();
-
-        long count = 0;
-        long fac = 1;
-        for (int i = 1; i <= n; i++) {
-            fac *= i;
-
-            while(fac % 10 == 0) {
-                count++;
-                fac /= 10;
-            }
-
-            fac %= 1000000000;
+        int count = 0;
+        for (long i = 5; i <= n; i*=5) {
+            count += n/i;
         }
         System.out.println(count);
 
