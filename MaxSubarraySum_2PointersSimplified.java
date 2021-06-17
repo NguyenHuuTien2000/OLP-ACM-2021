@@ -10,6 +10,7 @@ public class MaximumSubarraySum {
         InputReader reader = new InputReader();
 
         int n = reader.nextInt();
+        
         long maxSum = Integer.MIN_VALUE,
              currentSum = Integer.MIN_VALUE;
         for (int i = 0; i < n; i++) {
