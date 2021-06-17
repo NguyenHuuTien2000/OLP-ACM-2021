@@ -3,8 +3,7 @@ package CSES;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class RestaurantCustomers {
@@ -13,20 +12,20 @@ public class RestaurantCustomers {
 
         int n  = reader.nextInt();
 
-        List<Integer> arrive = new ArrayList<>();
-        List<Integer> depart = new ArrayList<>();
+        int[] arrive = new int[n];
+        int[] depart = new int[n];
         for (int i = 0; i < n; i++) {
-            arrive.add(reader.nextInt());
-            depart.add(reader.nextInt());
+            arrive[i] = reader.nextInt();
+            depart[i] = reader.nextInt();
         }
-        arrive.sort(Integer::compareTo);
-        depart.sort(Integer::compareTo);
+        Arrays.sort(arrive);
+        Arrays.sort(depart);
 
         int currCustomers = 0;
         int maxCustomers = 0;
         for (int i = 0, j = 0; i < n; i++) {
             currCustomers++;
-            if (arrive.get(i) > depart.get(j)) {
+            if (arrive[i] > depart[j]) {
                 j++;
                 currCustomers--;
             }
@@ -34,6 +33,7 @@ public class RestaurantCustomers {
         }
         System.out.println(maxCustomers);
     }
+    
     static class InputReader {
         public BufferedReader reader;
         public StringTokenizer tokenizer;
